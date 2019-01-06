@@ -1,43 +1,39 @@
 <div class="page-container">
-  <div class="form-container">
-    <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
-      <div>
-        <mat-form-field class="form-element">
-          <input matInput placeholder="Cloud Name" formControlName="cloudName">
-          <mat-error *ngIf="!formGroup.controls['cloudName'].valid && formGroup.controls['cloudName'].touched">
-            <small>Required field.</small>
-          </mat-error>
-        </mat-form-field>
-      </div>
+    <div class="form-container">
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
+            <div>
+                <mat-form-field class="form-element">
+                    <input matInput placeholder="Cloud Name" formControlName="cloudName">
+                    <mat-error
+                            *ngIf="!formGroup.controls['cloudName'].valid && formGroup.controls['cloudName'].touched">
+                        <small>Required field.</small>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="form-element">
+                    <input matInput placeholder="Video Public Id" formControlName="videoPublicId">
+                    <mat-error
+                            *ngIf="!formGroup.controls['cloudName'].valid && formGroup.controls['cloudName'].touched">
+                        <small>Required field.</small>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <json-editor [options]="editorOptions" [data]="subs" (blur)="updateJson($event)"></json-editor>
 
-      <div>
-        <mat-form-field class="form-element">
-          <input matInput placeholder="Video Public Id" formControlName="videoPublicId">
-          <mat-error *ngIf="!formGroup.controls['cloudName'].valid && formGroup.controls['cloudName'].touched">
-            <small>Required field.</small>
-          </mat-error>
-        </mat-form-field>
-      </div>
-      <json-editor [options]="editorOptions" [data]="subs" (blur)="updateJson($event)"></json-editor>
-
-      <div class="form-element">
-        <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">
-          Generate URL
-        </button>
-      </div>
-    </form>
-  </div>
-  <!--<div class="col-container">-->
-
-  <div class="player-container">
-    <vg-player>
-      <video #media [vgMedia]="media" [src]="videoUrl" id="singleVideo" preload="auto" preload="auto" crossorigin
-             controls>
-      </video>
-    </vg-player>
-    <label class="url-label">Video Generated Url:</label>
-    <p>{{videoUrl || '***Url Not Generated Yet***'}}</p>
-  </div>
-
-  </div>
-<!--</div>-->
+            <div class="form-element">
+                <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">
+                    Generate URL
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="player-container">
+        <vg-player>
+            <video #media [vgMedia]="media" [src]="videoUrl" id="singleVideo" preload="auto" preload="auto" crossorigin controls>
+            </video>
+        </vg-player>
+        <label class="url-label">Video Generated Url:</label>
+        <p>{{videoUrl || '***Url Not Generated Yet***'}}</p>
+    </div>
+</div>
