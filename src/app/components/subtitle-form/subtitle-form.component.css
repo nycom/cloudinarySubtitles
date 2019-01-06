@@ -1,0 +1,51 @@
+::ng-deep .mat-form-field-infix {
+  width: 400px !important;
+}
+
+form {
+  width: 100%;
+}
+
+.form-element button {
+  margin-top: 15px;
+}
+
+.form-element {
+  margin: 10px 0;
+}
+
+.form-element input {
+  width: 200px;
+}
+
+.page-container {
+  margin: 25px;
+  display: flex;
+  flex-direction: row;
+}
+.col-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container {
+  display: flex;
+  flex: 1 1;
+  margin: 0 25px;
+}
+
+.player-container {
+  display: flex;
+  flex: 1 1;
+  flex-direction: column;
+}
+
+ .player-container p {
+   max-width: 900px;
+   word-wrap: break-word;
+ }
+
+.url-label {
+  font-weight: bold;
+  margin-top: 15px;
+}
