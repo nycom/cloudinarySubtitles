@@ -1,0 +1,21 @@
+{
+  "name": "cloudinary-subtitle-lib",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+  },
+  "main": "bundles/cloudinary-subtitle-lib.umd.js",
+  "module": "fesm5/cloudinary-subtitle-lib.js",
+  "es2015": "fesm2015/cloudinary-subtitle-lib.js",
+  "esm5": "esm5/cloudinary-subtitle-lib.js",
+  "esm2015": "esm2015/cloudinary-subtitle-lib.js",
+  "fesm5": "fesm5/cloudinary-subtitle-lib.js",
+  "fesm2015": "fesm2015/cloudinary-subtitle-lib.js",
+  "typings": "cloudinary-subtitle-lib.d.ts",
+  "metadata": "cloudinary-subtitle-lib.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}
