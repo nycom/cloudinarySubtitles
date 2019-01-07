@@ -4,6 +4,6 @@ export declare class CloudinarySubtitleLibService {
     constructor();
     addSubtitlesToVideo(cloudName: string, videoPublicId: string, subtitles: any): string;
     private entryToCloudinaryParams(entry);
-    private addTextAndPosition(text);
+    private addTextPositionAndStyles(text);
     private parseTimeToParam(prefix, time);
 }

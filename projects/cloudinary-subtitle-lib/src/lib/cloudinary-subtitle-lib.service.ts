@@ -24,7 +24,6 @@ export class CloudinarySubtitleLibService {
       console.error(`Missing appropriate videoPublicId...\n
                      videoPublicId should be a string which represents the video id provided by cloudinary,\n 
                      please follow the instructions and try again`);
-
       return;
     }
 
@@ -39,8 +38,13 @@ export class CloudinarySubtitleLibService {
     let url = this.BASE_URL + cloudName + this.CLOUDINARY_URL_VIDEO_TYPE_EXTENSION;
     const subtitlesArray = subtitles.subtitles;
 
-    subtitlesArray.map(entry => {
-      url += this.entryToCloudinaryParams(entry);
+    subtitlesArray.map((entry, index) => {
+      if (entry['start-timing'] && entry['end-timing'] && entry.text) {
+          url += this.entryToCloudinaryParams(entry);
+      } else {
+        console.error(`Bad subtitle format at index ${index}, please make sure that each subtitle is of 
+        type: { 'start-timing': string, 'end-timing': string, text: string }`);
+      }
     });
 
     url += videoPublicId;
@@ -48,12 +52,12 @@ export class CloudinarySubtitleLibService {
   }
 
   private entryToCloudinaryParams(entry): string {
-    return (this.addTextAndPosition(entry.text) +
+    return (this.addTextPositionAndStyles(entry.text) +
       this.parseTimeToParam('so_', entry['start-timing']) + ',' +
       this.parseTimeToParam('eo_', entry['end-timing']) + '/');
   }
 
-  private addTextAndPosition(text): string {
+  private addTextPositionAndStyles(text): string {
     return 'l_text:Arial_40px:' + encodeURIComponent(encodeURIComponent(text)) + ',y_60,g_south,b_black,co_white,';
   }
 
